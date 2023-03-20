@@ -1,0 +1,67 @@
+package org.sample;
+
+import java.io.IOException;
+import java.util.Date;
+
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import org.openqa.selenium.WebDriver;
+
+public class AdactinHotelJunit {
+	static WebDriver driver;
+	static BaseClass base=new BaseClass();
+	AHPom a=new AHPom();
+	@BeforeClass
+	public static void launchBrowser() {
+		WebDriver browserLaunch = base.browserLaunch();
+		base.LoadUrl("http://adactinhotelapp.com/");
+		base.maximizeWindow();
+	}
+	@AfterClass
+	public static void quitBrowser() {
+		base.quitBrowser();	
+	}
+	@Before
+	public void startTime() {
+		Date d=new Date();
+		System.out.println("\n"+"Start Time:"+"\n"+d);
+	}
+	@After
+	public void endTime() {
+		Date d1=new Date();
+		System.out.println("\n"+"End Time:"+"\n"+d1);
+	}
+	@Test
+	public void hotelBooking() throws IOException, InterruptedException {
+		base.sendValue(a.getTxtUserName(), base.getData("Sheet1", 1, 0));
+		base.sendValue(a.getTxtPassword(), base.getData("Sheet1", 1, 1));
+		base.click(a.getBtnLogin());
+		base.selectByVisibleText(a.getBtnLocation(), "London");
+		base.selectByVisibleText(a.getBtnHotels(), "Hotel Sunshine");
+		base.selectByVisibleText(a.getBtnRt(), "Super Deluxe");
+		base.selectByIndex(a.getBtnNr(),2);
+		base.selectByIndex(a.getBtnApr(), 1);
+		base.selectByIndex(a.getBtnCpr(), 2);
+		base.click(a.getBtnSearch());
+		base.click(a.getBtnSelect());
+		base.click(a.getBtnContinue());
+		base.sendValue(a.getTxtFirstName(), base.getData("Sheet1", 1, 4));
+		base.sendValue(a.getTxtLastName(), base.getData("Sheet1", 1, 5));
+		base.sendValue(a.getTxtAddress(), base.getData("Sheet1", 1, 6));
+		base.sendValue(a.getTxtCcNo(), base.getData("Sheet1", 1, 7));
+		base.sendValue(a.getTxtCvv(), base.getData("Sheet1", 1, 8));
+		base.sendValue(a.getTxtCt(), base.getData("Sheet1", 1, 9));
+		base.sendValue(a.getTxtEm(), base.getData("Sheet1", 1, 10));
+		base.sendValue(a.getTxtEy(), base.getData("Sheet1", 1, 11));
+		base.click(a.getBtnBookNow());
+		Thread.sleep(6000);
+		base.getAttribute(a.getTxtOrderId());
+		base.click(a.getBtnMyItinerary());
+		base.click(a.getBtnAllSelect());
+		base.click(a.getBtnCancel());
+		base.dismissAlert();	
+	}
+}
