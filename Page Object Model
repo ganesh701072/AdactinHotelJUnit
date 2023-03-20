@@ -1,0 +1,145 @@
+package org.sample;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class AHPom extends BaseClass{
+
+	public AHPom() {
+		PageFactory.initElements(driver, this);
+	}
+	
+	//register page
+	@FindBy(xpath="//a[text()='New User Register Here']")
+	private WebElement btnNewRegister;
+	@FindBy(xpath="//a[text()='Go back to Login page']")
+	private WebElement btnLoginPage;
+	
+	public WebElement getBtnLoginPage() {
+		return btnLoginPage;}
+	public WebElement getBtnNewRegister() {
+		return btnNewRegister;}
+
+	//login page
+	@FindBy(xpath="//input[@id='username']")
+	private WebElement txtUserName;
+	@FindBy(xpath="//input[@id='password']")
+	private WebElement txtPassword;
+	@FindBy(id="login")
+	private WebElement btnLogin;
+	
+	public WebElement getTxtUserName() {
+		return txtUserName;}
+	public WebElement getTxtPassword() {
+		return txtPassword;}
+	public WebElement getBtnLogin() {
+		return btnLogin;}
+	
+	//Search hotel Page
+	
+	@FindBy(xpath="(//select[@class='search_combobox'])[1]")
+	private WebElement btnLocation;
+	@FindBy(xpath="(//select[@class='search_combobox'])[2]")
+	private WebElement btnHotels;
+	@FindBy(xpath="(//select[@class='search_combobox'])[3]")
+	private WebElement btnRt;
+	@FindBy(xpath="(//select[@class='search_combobox'])[4]")
+	private WebElement btnNr;
+	@FindBy(id="(datepick_in")
+	private WebElement txtDate;
+	@FindBy(id="(datepick_out")
+	private WebElement txtDate2;
+	@FindBy(xpath="(//select[@class='search_combobox'])[5]")
+	private WebElement btnApr;
+	@FindBy(xpath="(//select[@class='search_combobox'])[6]")
+	private WebElement btnCpr;
+	@FindBy(id="Submit")
+	private WebElement btnSearch;
+	
+	public WebElement getBtnLocation() {
+		return btnLocation;}
+	public WebElement getBtnHotels() {
+		return btnHotels;}
+	public WebElement getBtnRt() {
+		return btnRt;}
+	public WebElement getBtnNr() {
+		return btnNr;}
+	public WebElement getTxtDate() {
+		return txtDate;}
+	public WebElement getTxtDate2() {
+		return txtDate2;}
+	public WebElement getBtnApr() {
+		return btnApr;}
+	public WebElement getBtnCpr() {
+		return btnCpr;}
+	public WebElement getBtnSearch() {
+		return btnSearch;}
+	
+	//Select Hotel Page
+	@FindBy(id="radiobutton_0")
+	private WebElement btnSelect;
+	@FindBy(id="continue")
+	private WebElement btnContinue;
+	
+	public WebElement getBtnSelect() {
+		return btnSelect;}
+	public WebElement getBtnContinue() {
+		return btnContinue;}
+	
+	//Booking Page
+	@FindBy(xpath="//input[@id='first_name']")
+	private WebElement txtFirstName;
+	@FindBy(xpath="//input[@id='last_name']")
+	private WebElement txtLastName;
+	@FindBy(className="txtarea")
+	private WebElement txtAddress;
+	@FindBy(xpath="(//input[@class='reg_input'])[3]")
+	private WebElement txtCcNo;
+	@FindBy(xpath="(//input[@class='reg_input'])[4]")
+	private WebElement txtCvv ;
+	@FindBy(id="cc_type")
+	private WebElement txtCt;
+	@FindBy(id="cc_exp_month")
+	private WebElement txtEm;
+	@FindBy(id="cc_exp_year")
+	private WebElement txtEy;
+	@FindBy(id="book_now")
+	private WebElement btnBookNow;
+	@FindBy(xpath="//input[@name='order_no']")
+	private WebElement txtOrderId;
+	@FindBy(xpath="//input[@name='my_itinerary']")
+	private WebElement btnMyItinerary;
+	@FindBy(xpath="//input[@name='check_all']")
+	private WebElement btnAllSelect;
+	@FindBy(xpath="//input[@value='Cancel Selected']")
+	private WebElement btnCancel;
+	
+
+	public WebElement getTxtFirstName() {
+		return txtFirstName;}
+	public WebElement getTxtLastName() {
+		return txtLastName;}
+	public WebElement getTxtAddress() {
+		return txtAddress;}
+	public WebElement getTxtCcNo() {
+		return txtCcNo;}
+	public WebElement getTxtCvv() {
+		return txtCvv;}
+	public WebElement getTxtCt() {
+		return txtCt;}
+	public WebElement getTxtEm() {
+		return txtEm;}
+	public WebElement getTxtEy() {
+		return txtEy;}
+	public WebElement getBtnBookNow() {
+		return btnBookNow;}
+	public WebElement getTxtOrderId() {
+		return txtOrderId;}
+	public WebElement getBtnMyItinerary() {
+		return btnMyItinerary;}
+	public WebElement getBtnAllSelect() {
+		return btnAllSelect;}
+	public WebElement getBtnCancel() {
+		return btnCancel;}
+}
