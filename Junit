@@ -20,19 +20,10 @@ public class AdactinHotelJunit {
 		base.LoadUrl("http://adactinhotelapp.com/");
 		base.maximizeWindow();
 	}
-	@AfterClass
-	public static void quitBrowser() {
-		base.quitBrowser();	
-	}
 	@Before
 	public void startTime() {
 		Date d=new Date();
 		System.out.println("\n"+"Start Time:"+"\n"+d);
-	}
-	@After
-	public void endTime() {
-		Date d1=new Date();
-		System.out.println("\n"+"End Time:"+"\n"+d1);
 	}
 	@Test
 	public void hotelBooking() throws IOException, InterruptedException {
@@ -64,4 +55,14 @@ public class AdactinHotelJunit {
 		base.click(a.getBtnCancel());
 		base.dismissAlert();	
 	}
+	@After
+	public void endTime() {
+		Date d1=new Date();
+		System.out.println("\n"+"End Time:"+"\n"+d1);
+	}
+	@AfterClass
+	public static void quitBrowser() {
+		base.quitBrowser();	
+	}
+	
 }
